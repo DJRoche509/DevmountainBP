@@ -35,8 +35,8 @@ console.log(`Item Count: ${itemCount}`) ;
 let backpack2 = backpack.splice(6,3);
 
 console.log('Backpack:');
-for (item in backpack){
-    console.log()
+for (let item in backpack){
+    console.log(backpack[item]) ;
 }
 
 
@@ -56,5 +56,6 @@ while (guessMe < 100) {
         guessMe += 3;
     }
     guessMe += 22;
+    // As final value, it should print out: 119
     console.log(`added 22. guessMe is now ${guessMe}`);
 }
