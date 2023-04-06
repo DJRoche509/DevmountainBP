@@ -206,7 +206,7 @@ switch (letterGrade){
 
 //Code Here
 function Devmountain(number){
-  let result = ''
+  let result = '' ;
   for (let i =1; i<= number; i++ ){
     result = 
       i % 15 === 0
@@ -216,9 +216,8 @@ function Devmountain(number){
       : i % 5 === 0
       ? 'Mountain'
       : i ;
-    console.log(result)
-}
-  
+    console.log(result);
+  }
 }
 
 Devmountain(100) ;
