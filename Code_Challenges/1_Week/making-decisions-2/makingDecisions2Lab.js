@@ -116,7 +116,7 @@ var listOfNumbers = [1,2,3,4,5,6,7,8,9,10,11,12];
 
 //Code Here
 let numDivisibleBy3 = listOfNumbers.forEach(element => {
-  if (element % 3){
+  if (element % 3 === 0){
     console.log(`${element} is divisible by 3.`)
   }
 });
