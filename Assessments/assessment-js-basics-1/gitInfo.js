@@ -10,6 +10,9 @@
 */
 
 //CODE HERE
+const gitDefinition = 'Git is a DevOps tool, a free and open-source version control system used to handle small to very large projects with speed and efficiency';
+
+
 
 //////////////////PROBLEM 2////////////////////
 /*
@@ -18,6 +21,9 @@
 */
 
 //CODE HERE
+const gitHubDefinition = 'GitHub is an online software development platform. More precisedly, a Git repository hosting service that provides a web-based graphical interface' ;
+
+
 
 //////////////////PROBLEM 3////////////////////
 /*
@@ -26,6 +32,9 @@
 */
 
 //CODE HERE
+const gitInitDefinition = 'Git init is one way to start a new project with Git.The git init command is used to generate a new, empty Git repository or to reinitialize an existing one';
+
+
 
 //////////////////PROBLEM 4////////////////////
 /*
@@ -34,6 +43,9 @@
 */
 
 //CODE HERE
+const gitCloneDefinition = 'Git clone is a command used to create a copy of a specific local/remote repository or branch within a repository.';
+
+
 
 //////////////////PROBLEM 5////////////////////
 /*
@@ -42,6 +54,9 @@
 */
 
 //CODE HERE
+const gitStatusDefinition = 'The "git status" command shows the current state of your Git working directory and staging area';
+
+
 
 //////////////////PROBLEM 6////////////////////
 /*
@@ -53,6 +68,10 @@
 */
 
 //CODE HERE
+const gitAddDefinition = 'The "git add" command adds new or changed files in your working directory to the Git staging area. It ultimately allows you to stage files in your local project directory';
+const gitAddCode = 'git add . or git add *';  //git add* add all the files in the current directory except the hidden ones. Whereas git add. add all files (includding hidden files), folders, and subfolders to the staging area
+
+
 
 //////////////////PROBLEM 7////////////////////
 /*
@@ -64,6 +83,9 @@
 */
 
 //CODE HERE
+const gitCommitDefinition = 'GIt commit is a representation/snapshot of your entire repo at a specific point in time';
+const gitCommitCode = 'git commit -m "initial commit" ';  //git commit -am "another message" adds all files and commits at once.
+
 
 
 //////////////////PROBLEM 8////////////////////
@@ -73,3 +95,6 @@
 */
 
 //CODE HERE
+const gitPushDefinition = 'The git push command uploads content from a local repository to a remote repository';
+
+
