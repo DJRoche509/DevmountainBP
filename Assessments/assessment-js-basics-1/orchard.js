@@ -50,10 +50,29 @@ const pinkPrice = .55
 */
 
 // CODE HERE
+// Declare totalAcres and concatenatedAcres variables with null value
+let totalAcres = 0
+let concatenatedAcres = [];
 
+//console.log('\n'.repeat(2));
+console.log('The concatenatedAcres array has the following elements: ');
 
+// store all three arrays, (fujiAcres, galaAcres,and pinkAcres) into a one array called concatenatedAcres 
+concatenatedAcres = fujiAcres.concat(galaAcres,pinkAcres);
+console.log(concatenatedAcres);
 
+// Prints a line string 
+console.log('\n'+ '-'.repeat(45)+'\n');
 
+/* Use a forEach loop to loop over each element in concatenatedAcres array*/
+concatenatedAcres.forEach(element => {
+    // Add each element found in the loop and store the sum to the totalAcres variable
+    totalAcres += element    
+});
+console.log(`The total number of acres picked for the entire week is "${totalAcres}" acres\n`);
+
+// Prints a line string 
+console.log('-'.repeat(45)+'\n');
 
 // PROBLEM 2
 
@@ -68,10 +87,12 @@ const pinkPrice = .55
 */
 
 // CODE HERE
+const averageDailyAcres = totalAcres / concatenatedAcres.length; // Use the length method to find the number of elements contained in the concatenatedAcres array.
+console.log(`${averageDailyAcres} is the average number of acres picked per day\n`);                                  // Log out the average number of acres picked per day to the `averageDailyAcres` variable.
 
 
-
-
+// Prints a line string 
+console.log('-'.repeat(45)+'\n');
 
 // PROBLEM 3
 
@@ -106,7 +127,14 @@ let acresLeft = 174
 let days = 0
 
 // CODE HERE
+while(acresLeft > 0 ){
+    days++ ;                            // add the days up by 1 each time the loop runs.
+    acresLeft -= averageDailyAcres ;    // substract the value of `averageDailyAcres` off the acresLeft each the while loop runs.
+}
+console.log(`It will take "${days}" work days to pick the the remaining apples over the 174 acres left.\n`);
 
+// Prints a line string 
+console.log('-'.repeat(45)+'\n');
 
 
 // PROBLEM 4
@@ -133,16 +161,47 @@ let days = 0
     values to the new arrays.
 */
 
-// CODE HERE
+// Create and Initialize the array variables:
+let fujiTons = []
+let galaTons =[]
+let pinkTons =[]
 
-// let fujiTons =
-// let galaTons =
-// let pinkTons =
+/*  
+ *  Create a respective copy for each Acre types' arrays (fujiAcres, galaAcres, & pinkAcres), store their elements' values in the 
+ *  respective Tons-type array variable using a forEach loop.
+ */
+fujiAcres.slice().forEach(e =>{ 
+                                e *= 6.5;               // Multiply each element by 6.5 to convert the amount each acre produces in tons.
+                                fujiTons.push(e)        // push or append each converted element to the fujiTons array
+                            });
 
+galaAcres.slice().forEach(el =>{ 
+                                el *= 6.5;               // Multiply each element by 6.5 to convert the amount each acre produces in tons.
+                                galaTons.push(el)        // push or append each converted element to the galaTons array
+                            });
 
+pinkAcres.slice().forEach(e =>{ 
+                                e *= 6.5;               // Multiply each element by 6.5 to convert the amount each acre produces in tons.
+                                pinkTons.push(e)        // push or append each converted element to the pinkTons array
+                            });
 
+// 
+console.log(`fujiTons array contains the following values:\n`);                           
+console.log(fujiTons);
+// Prints a line string 
+console.log('-'.repeat(45)+'\n');
 
+// 
+console.log(`galaTons array contains the following values:\n`);                           
+console.log(galaTons);
+// Prints a line string 
+console.log('-'.repeat(45)+'\n');
 
+// 
+console.log(`pinkTons array contains the following values:\n`);                           
+console.log(pinkTons);
+// Prints a line string 
+console.log('-'.repeat(45)+'\n');
 
 // PROBLEM 5
 
@@ -160,14 +219,40 @@ let days = 0
     Hint: there are 2000 pounds in a ton.
 */
 
-// CODE HERE 
+// Create and Initialize the following variables.  
+let fujiPounds = 0
+let galaPounds = 0
+let pinkPounds = 0
 
-// let fujiPounds =
-// let galaPounds =
-// let pinkPounds =
+// Create a sum function, which takes in one parameter "arr", to loop through an array and return the sum of the total integer elements 
+function sumArr(arr){
+    let sum = 0;
+    for (let i =0; i<arr.length; i++){
+        sum += arr[i] ;
+    }
+    return sum ; 
+}
+
+/* Pass the values of each variety-Tons as a parameter to the sumArr function, convert the return total in pounds by multiplying 
+ * it by 2000 ( 1Ton ---> 2000 Pounds) and store the results in their respective variables
+ */
+fujiPounds = sumArr(fujiTons) * 2000 ;
+galaPounds = sumArr(galaTons) * 2000 ;
+pinkPounds = sumArr(pinkTons) * 2000 ;
 
 
+console.log('The total fujiPounds are:');
+console.log(fujiPounds);                        // Log out the value of fujiPounds
 
+// Prints a line string 
+console.log('-'.repeat(45)+'\n');
+console.log('The total galaPounds are:');
+console.log(galaPounds);                        // Log out the value of galaPounds
+
+// Prints a line string 
+console.log('-'.repeat(45)+'\n');
+console.log('The total pinkPounds are:');
+console.log(pinkPounds);                        // Log out the value of pinkPounds
 
 
 
