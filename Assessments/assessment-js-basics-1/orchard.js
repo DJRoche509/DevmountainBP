@@ -36,6 +36,12 @@ const galaPrice = .64
 const pinkPrice = .55
 
 
+// Format prices to USD using the locale, style, and currency.
+let USDollar = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+});
+
 
 // PROBLEM 1
 
@@ -62,7 +68,7 @@ concatenatedAcres = fujiAcres.concat(galaAcres,pinkAcres);
 console.log(concatenatedAcres);
 
 // Prints a line string 
-console.log('\n'+ '-'.repeat(45)+'\n');
+console.log('\n'+ '-'.repeat(75)+'\n');
 
 /* Use a forEach loop to loop over each element in concatenatedAcres array*/
 concatenatedAcres.forEach(element => {
@@ -72,7 +78,7 @@ concatenatedAcres.forEach(element => {
 console.log(`The total number of acres picked for the entire week is "${totalAcres}" acres\n`);
 
 // Prints a line string 
-console.log('-'.repeat(45)+'\n');
+console.log('-'.repeat(75)+'\n');
 
 // PROBLEM 2
 
@@ -92,7 +98,7 @@ console.log(`${averageDailyAcres} is the average number of acres picked per day\
 
 
 // Prints a line string 
-console.log('-'.repeat(45)+'\n');
+console.log('-'.repeat(75)+'\n');
 
 // PROBLEM 3
 
@@ -134,7 +140,7 @@ while(acresLeft > 0 ){
 console.log(`It will take "${days}" work days to pick the the remaining apples over the 174 acres left.\n`);
 
 // Prints a line string 
-console.log('-'.repeat(45)+'\n');
+console.log('-'.repeat(75)+'\n');
 
 
 // PROBLEM 4
@@ -185,23 +191,23 @@ pinkAcres.slice().forEach(e =>{
                                 pinkTons.push(e)        // push or append each converted element to the pinkTons array
                             });
 
-// 
+// Log out the value of fujiTons
 console.log(`fujiTons array contains the following values:\n`);                           
 console.log(fujiTons);
 // Prints a line string 
-console.log('-'.repeat(45)+'\n');
+console.log('-'.repeat(75)+'\n');
 
-// 
+// Log out the value of galaTons
 console.log(`galaTons array contains the following values:\n`);                           
 console.log(galaTons);
 // Prints a line string 
-console.log('-'.repeat(45)+'\n');
+console.log('-'.repeat(75)+'\n');
 
-// 
+// Log out the value of pinkTons
 console.log(`pinkTons array contains the following values:\n`);                           
 console.log(pinkTons);
 // Prints a line string 
-console.log('-'.repeat(45)+'\n');
+console.log('-'.repeat(75)+'\n');
 
 // PROBLEM 5
 
@@ -245,12 +251,12 @@ console.log('The total fujiPounds are:');
 console.log(fujiPounds);                        // Log out the value of fujiPounds
 
 // Prints a line string 
-console.log('-'.repeat(45)+'\n');
+console.log('-'.repeat(75)+'\n');
 console.log('The total galaPounds are:');
 console.log(galaPounds);                        // Log out the value of galaPounds
 
 // Prints a line string 
-console.log('-'.repeat(45)+'\n');
+console.log('-'.repeat(75)+'\n');
 console.log('The total pinkPounds are:');
 console.log(pinkPounds);                        // Log out the value of pinkPounds
 
@@ -272,14 +278,25 @@ console.log(pinkPounds);                        // Log out the value of pinkPoun
     console. 
 */
 
-// CODE HERE
+/* 
+ * Calculate the profits made for each apple types multiplying each types by their respective price, Then divide by 100 
+ * to convert cents in dollar amounts.
+ */
+let fujiProfit = fujiPounds * fujiPrice / 100 ;
+let galaProfit = galaPounds * galaPrice /100 ;
+let pinkProfit = pinkPounds * pinkPrice / 100
 
-// let fujiProfit =
-// let galaProfit =
-// let pinkProfit =
+// Prints a line string 
+console.log('-'.repeat(75)+'\n');
+console.log(`Total profits of fuji apple are: ${USDollar.format(fujiProfit)}\n`);       // Log out the price of fuji apples in USD format.
 
+// Prints a line string 
+console.log('-'.repeat(75)+'\n');
+console.log(`Total profits of fuji apple are: ${USDollar.format(galaProfit)}\n`);       // Log out the price of gala apples in USD format.
 
-
+// Prints a line string 
+console.log('-'.repeat(75)+'\n');
+console.log(`Total profits of fuji apple are: ${USDollar.format(pinkProfit)}\n`);       // Log out the price of pink apples in USD format.
 
 
 
@@ -293,4 +310,7 @@ console.log(pinkPounds);                        // Log out the value of pinkPoun
     Log `totalProfit` to the console.
 */
 
-// CODE HERE
+// Prints a line string 
+console.log('-'.repeat(75)+'\n');
+const totalProfit = fujiProfit + galaProfit + pinkProfit ;                              // Add all three profit variables and store them in totalProfit
+console.log(`Total profit of all three varieties are: ${USDollar.format( totalProfit)}\n`); //Log out totalProfit in USD format.
