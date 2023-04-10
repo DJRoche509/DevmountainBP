@@ -1,3 +1,10 @@
+// ADD TO ZERO
+
+/*
+ *Given an array of numbers, console.log "true" if any two numbers in the array add to zero, otherwise log "false"
+ */
+
+
 // Starting array
 let array = [28, 43, -12, 30, 4, 0, 12]
 
