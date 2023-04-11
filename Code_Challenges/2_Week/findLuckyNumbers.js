@@ -15,3 +15,15 @@
 
 // Write your code below this line.
 
+function luckyNumbers(n){
+    let possibleNumbs = [1,2,3,4,5,6,7,8,9,10];
+    let luckyArrNum= [] ;
+    for (let i=1; i<=n; i++ ){
+        let indx = Math.floor(Math.random()*possibleNumbs.length) ;
+        luckyArrNum.push(possibleNumbs[indx]);
+        possibleNumbs.splice(indx,1)
+    }
+    return luckyArrNum;
+}
+console.log(luckyNumbers(2)) ;
+console.log(luckyNumbers(6)) ;
