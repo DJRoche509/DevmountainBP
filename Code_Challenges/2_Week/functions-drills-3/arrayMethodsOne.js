@@ -4,6 +4,7 @@
     storing the results of your function calls.
 */
 
+console.log('////////// PROBLEM 1 //////////');
 ////////// PROBLEM 1 //////////
 
 // Do not edit the code below.
@@ -18,10 +19,12 @@ const mixedNumbers = [6,3,1,7,5,2,6,8,9,4,2,7,9,3,1,8,4,3];
 */
 
 // CODE HERE
-const evenNumbers // = mixedNumbers.filter(/* Provide Your Callback Here */)
+const evenNumbers = mixedNumbers.filter(evenNum => evenNum % 2 ===0 );
+console.log(evenNumbers);
 
 
 
+console.log('\n////////// PROBLEM 2 //////////');
 ////////// PROBLEM 2 //////////
 
 // Do not edit the code below.
@@ -39,10 +42,11 @@ const prices = [15.00, 23.00, 78.00, 34.00, 12.00, 86.00, 12.00, 79.00, 32.00];
 */
 
 // CODE HERE
-const postTaxPrices // = prices.map(/* Provide Your Callback Here );
+const postTaxPrices = prices.map( price=> (price*(1+ .07) )); // price+=(price*.07)
+console.log(postTaxPrices);
 
 
-
+console.log('\n////////// PROBLEM 3//////////');
 ////////// PROBLEM 3 //////////
 
 // Do not edit the code below.
@@ -57,10 +61,10 @@ const populations = [8175133, 3792621, 2695598, 2100263];
 */
 
 // CODE HERE
-const totalPopulation //  = populations.reduce(/* Provide Your Callback Here */)
+const totalPopulation = populations.reduce((total, current) => total + current);
+console.log(totalPopulation);
 
-
-
+console.log('\n////////// PROBLEM 4 //////////');
 ////////// PROBLEM 4 //////////
 
 // Do not edit the code below.
@@ -82,10 +86,10 @@ const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulb
 */
 
 // CODE HERE
-const myStrongest // = monstersInYourPocket.filter(/* Provide Your Callback Here */)
+const myStrongest = monstersInYourPocket.filter( cp => cp.CP > 200 ) ;
+console.log(myStrongest);
 
-
-
+console.log('\n////////// PROBLEM 5 //////////');
 ////////// PROBLEM 5 //////////
 
 // Do not edit code below.
@@ -100,9 +104,14 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
 */
 
 // CODE HERE
+const totalOrders = orders.map(val => val.price * (1 + val.tax) ); 
+console.log(totalOrders);
 
 
 
+
+
+console.log('\n////////// PROBLEM 6 //////////');
 ////////// PROBLEM 6 //////////
 
 // Do not edit the code below.
@@ -120,3 +129,5 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
 */
 
 // CODE HERE
+const sumPurchases = purchases.filter( element => element.owner === 'Bob').reduce((total,curr) => total + curr.price, 0) ;   // total ---> the zero is set as the accumulator value for total
+console.log(sumPurchases);
