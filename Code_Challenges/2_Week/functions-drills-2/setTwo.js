@@ -1,4 +1,5 @@
 ////////// PROBLEM 1 //////////
+console.log('\n ////////// PROBLEM 1 //////////\n');
 
 /*
   Write a function called multiply that takes in three parameters: two numbers and a callback function.  
@@ -6,15 +7,17 @@
 */
 
 // CODE HERE
-
+function multiply (num1, num2, cb){
+  cb(num1 * num2);
+}
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// multiply(4, 3, answer => {
-//   console.log('The answer is ' + answer) //should console.log 12
-// })
+multiply(4, 3, answer => {
+  console.log('The answer is ' + answer) //should console.log 12
+});
 
 
 
@@ -27,7 +30,7 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 // Do not edit the code above.
 
 
-
+console.log('\n ////////// PROBLEM 2 //////////\n');
 ////////// PROBLEM 2 //////////
 
 /*
@@ -36,18 +39,20 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE 
-
+function first (arr, cb){
+  cb(arr[0]);
+}
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// first(names, firstName => {
-//   console.log('The first name in names is ' + firstName)
-// })
+first(names, firstName => {
+  console.log('The first name in names is ' + firstName)
+})
 
 
-
+console.log('\n ////////// PROBLEM 3 //////////\n');
 ////////// PROBLEM 3 //////////
 
 /*
@@ -56,18 +61,20 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE
-
+function last(arr2, callback){
+  callback(arr2[arr2.length-1]);
+}
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// last(names, lastName => {
-//   console.log('The last name in names is ' + lastName)
-// })
+last(names, lastName => {
+  console.log('The last name in names is ' + lastName)
+})
 
 
-
+console.log('\n ////////// PROBLEM 4 //////////\n');
 ////////// PROBLEM 4 //////////
 
 /*
@@ -78,22 +85,26 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE 
-
+function contains(arrNames, name, cb){
+  name 
+  ? cb(true)
+  : cb(false);
+}
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// contains(names, 'Colt', result => {
-//   if(result === true){
-//     console.log('Colt is in the array')
-//   } else {
-//     console.log('Colt is not in the array')
-//   }
-// })
+contains(names, 'Colt', result => {
+  if(result === true){
+    console.log('Colt is in the array')
+  } else {
+    console.log('Colt is not in the array')
+  }
+})
 
 
-
+console.log('\n ////////// PROBLEM 5 //////////\n');
 ////////// PROBLEM 5 //////////
 
 /*
@@ -103,6 +114,16 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE
+function uniq(arrAy, callback){
+  let dupArray = [] ;
+  for (let i = 0; i < arrAy.length; i++) {
+    if (!dupArray.includes(arrAy[i])){
+      dupArray.push(arrAy[i]);
+    } 
+  }  
+  callback(dupArray) ;
+}
+
 
 /*
   Invoke the uniq function, passing in the names array from above and a callback function.
@@ -112,9 +133,10 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE
+uniq(names, uniqArr =>
+  console.log(`The new names array with all the duplicate items removed is:`, uniqArr));
 
-
-
+console.log('\n ////////// PROBLEM 6 //////////\n');
 ////////// PROBLEM 6 //////////
 
 /* 
@@ -123,7 +145,11 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE 
-
+function each(namesArr, cb){
+  for (let n = 0; n < namesArr.length; n++){
+    cb(namesArr[n], n) ;
+  }
+}
 
 /*
   Invoke the each function, passing in the names array and a callback function.
@@ -133,14 +159,15 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE
-
+each(names, (item, index) => 
+ console.log(`The item at index ${index} is ${item}.`)) ;
 
 
 
 
 ////////// CHALLENGES //////////
 
-
+console.log('\n ////////// CHALENGE 1 //////////\n');
 ////////// CHALLENGE 1 //////////
 
 
@@ -159,6 +186,17 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE
+const addingFactory = numb1 => {
+  return function(numb2){
+    return ('The sum of '+ numb1 +' plus '+ numb2 +' equals to: '+ (numb1+numb2)) ;
+  }
+};
+
+// const addingFactory = numb1 => numb2 => numb1 + numb2 ;
+
+
+
+
 
 /*
   Now that you have addingFactory, you can create other
@@ -173,7 +211,7 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE
-
+const addTen = addingFactory(10);
 /*
   Now the inner function is stored in the addTen variable! 
 
@@ -185,6 +223,8 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE
+console.log(addTen(12)) ;
+console.log(addTen(17));
 
 /*
   Let's make another function from the addingFactory. 
@@ -198,11 +238,13 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE
-
-
+const addNUMBER23 = addingFactory(23)
+console.log(addNUMBER23(23));
+console.log(addNUMBER23(84));
 
 
 ////////// CHALLENGE 2 //////////
+console.log('\n ////////// CHALLENGE 2 //////////\n');
 
 /*
   Write a function called getUserById that takes in three parameters: an array of objects (users), an id and a callback, and searches for the user with a matching id.
@@ -234,7 +276,13 @@ var users = [
 // Do not edit the code above.
 
 // CODE HERE 
-
+const getUserById = (users, id, callback) => {
+  for (let i =0; i < users.length; i++){
+    if (users[i].id === id) {
+      callback(users[i]);
+    }
+  }
+}
 
 
 // UNCOMMENT THE FUNCTION CALL BELOW
@@ -242,5 +290,5 @@ var users = [
 // CHECK YOUR ANSWER
 
 getUserById(users, '16t', user => {
-  console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
+  console.log('The user with the id 16t has the email of ' + user.email + ', the name of ' + user.name + ', and the address of ' + user.address) 
 })
