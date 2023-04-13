@@ -3,6 +3,7 @@
 let numbers = [40, 68, 14, 90, 49];
 // ***** Do not edit the code above *****
 
+console.log('\n////////// PROBLEM 1 //////////');
 ////////// PROBLEM 1 //////////
 
 /* 
@@ -10,8 +11,12 @@ let numbers = [40, 68, 14, 90, 49];
 */
 
 // CODE HERE
+numbers.forEach(element => {
+  console.log(element /= 2);
+});
 
 
+console.log('\n////////// PROBLEM 2 //////////');
 ////////// PROBLEM 2 //////////
 
 /* 
@@ -23,8 +28,11 @@ let numbers = [40, 68, 14, 90, 49];
 */
 
 // CODE HERE
+numMapDividedBy2 = numbers.map( num => num / 2 ) ;
+console.log(numMapDividedBy2);
 
 
+console.log('\n////////// PROBLEM 3 //////////');
 ////////// PROBLEM 3 //////////
 
 // ***** Do not edit the code below *****
@@ -50,8 +58,11 @@ let cities = [
 */
 
 // CODE HERE
+const citiesEndsWithI = cities.filter( city => city[city.length-1] === 'i' );
+console.log(citiesEndsWithI);
 
 
+console.log('\n////////// PROBLEM 4 //////////');
 ////////// PROBLEM 4 //////////
 
 // ***** Do not edit the code below *****
@@ -86,7 +97,16 @@ let fruits = [
 */
 
 // CODE HERE
-
+fruits.forEach((element, index) => {
+  let result = '';
+  result=
+    element.color === 'red'
+    ?`The fruit: ${element.name} with index "${index}" is an apple.`
+    : element.color === 'orange'
+    ? `The fruit: ${element.name } with index "${index}" is an orange.`
+    : `The fruit: ${element.name} with index "${index}" is neither apple or orange.`;
+  console.log(result);
+});
 
 
 /* 
@@ -100,9 +120,20 @@ let fruits = [
 */
 
 // COPY AND PASTE THE RESULT FROM YOUR CONSOLE (NODE CONSOLE IS YOUR TERMINAL) HERE (AS A MULTI LINES COMMENT)
+/*
+ *    //////////////
+ *    ////RESULT////
+ *    ////////////// 
+ * The fruit: banana with index "0" 
+ * is neither apple or orange.      
+ * The fruit: orange with index "1" 
+ * is an orange.
+ * The fruit: grape with index "2" is neither apple or orange.       
+ * The fruit: apple with index "3" is an apple.
+ *
+ */
 
-
-
+console.log('\n////////// PROBLEM 5 //////////');
 ////////// PROBLEM 5 //////////
 
 // ***** Do not edit the code below *****
@@ -145,7 +176,7 @@ let foods = [
 */
 
 // CODE HERE
-
+totalFoodCount = foods.filter( food => food.tags.includes('rice')).reduce((acc, curr) => acc + curr.price , 0 )
 
 // THE TOTAL
-
+console.log(totalFoodCount);  //Should log out: 36
