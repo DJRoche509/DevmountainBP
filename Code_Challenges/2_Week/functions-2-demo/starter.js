@@ -142,3 +142,22 @@ console.log(catProducts);
 ////////////////////////
 
 // CODE HERE
+const makeSandwich = bread => {
+  ingredients => {
+    let order = `You ordered a ${bread} bread sandwich with`
+    for (let i =0; i < ingredients.length; i++){
+      if (i === ingredients.length-1 && i !== 0){
+        order += `and ${ingredients[i]},`
+      } else if (ingredients.length ===1){
+        order += `${ingredients[i]},`
+      } else {
+        order += `${ingredients[i]},`
+      }
+    }
+    return order ;
+  } 
+}
+
+const mySandwich = makeSandwich('rye');
+
+console.log(mySandwich(['bacon', 'lettuce', 'tomato', 'tuna']));
