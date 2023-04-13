@@ -283,6 +283,8 @@ const getUserById = (users, id, callback) => {
     }
   }
 }
+// one line with ternary
+//const getUserById = (users, id, callback) => users.forEach(elem => elem.id === id ? callback(elem) : null)
 
 
 // UNCOMMENT THE FUNCTION CALL BELOW
