@@ -1,1 +1,26 @@
 Extra Credit: Company Stack Research
+
+"Tech Stack" - Definition: Tech Stacks Are The Different Systems that a company uses to operate & serve its customers. Flexibility is 
+ another key benefit of using tech stacks.
+
+1)  IBM Corporation
+    IBM, or International Business Machines, is among the oldest still active tech companies in existence. The company specializes 
+    in branches of the future such as artificial intelligence. Within the company’s software branch, IBM has managed to become a global 
+    leader in the development of cloud and cognition software.
+    Products that make up IBM's tech stack include: OpenLiberty, SpringBoot, Node.js, Node.js Express, Bootstrap, Hadoop, Maven, Tomcat, Cassandra, JavaScript
+
+
+2)  VMware
+    VMware is the global leader in virtualization software. Through its ‘ESXi‘ operating system-like hypervisor / virtual machine, the 
+    company also serves the enterprise software segment. Their primary and main stack used is Azure VMware Solution. Other tsstacks used 
+    are: Datadog, Bitnami, Nginx, Minio, EMC VxRail
+    Main types of software offered:
+        Virtualization software
+        Enterprise software
+        
+
+3)  Alphabet Inc, --> (Google)
+    Alphabet has also allowed Google to grow into domains beyond internet search and advertising to become a tech conglomerate.
+
+    Alphabet uses the following tech stacks: Python, Java, Android SDK, Go, C++, Preact, Angular JS, Kubernetes, TensorFlow, and a host 
+    of other Google frameworks.
