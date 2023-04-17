@@ -23,3 +23,26 @@ Uppercase vowels are still vowels:
 hasMoreVowels('Aal')
 // true
 */
+
+function hasMoreVowels(word){
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+  let count=0 ; 
+  let wArr = word.toLowerCase().split('');
+  wArr.forEach( (char, indx)=>{
+    vowels.includes(wArr[indx])
+      ? count++
+      : null
+  });
+   console.log( (count > Math.floor(word.length/2))); 
+}
+
+hasMoreVowels('yay')
+// false
+hasMoreVowels('Aaleo')
+// true
+hasMoreVowels('moose')
+// true
+hasMoreVowels('mice')
+// false
+hasMoreVowels('graph')
+// false
