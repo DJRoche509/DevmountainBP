@@ -1,0 +1,41 @@
+.container{
+    background-color: rgb(255, 255, 255);
+    width: 600px;
+    height: 400px;
+    margin: auto;
+    margin-top: auto;
+    margin-bottom: 0px;
+    display: grid;
+    position:relative;
+}
+header{
+    width: 600px;
+    height: 80px;
+    background-color: rgba(50, 49, 49, 0.719) ;
+}
+div{
+    display:flex;
+}
+
+.left{
+    margin-top: 0px;
+    width: 70px;
+    height: 400px;
+    background-color: rgb(187, 187, 187);
+}
+.right{
+    margin-top: 0px;
+    width: 70px;
+    height: 400px;
+    background-color: rgb(187,187,187);
+    position: absolute;
+    right:0px ;
+}
+footer{
+    height: 60px;
+    background-color: rgb(69, 69, 77);
+    width: 460px ;
+    margin: 0px;
+    position: relative;
+    top: 340px;
+}
