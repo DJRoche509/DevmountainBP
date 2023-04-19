@@ -1,6 +1,6 @@
 
 .container{
-    min-width: 650px;
+    min-width: 600px;
     min-height: 1100px;
     display: flex;
     flex-direction: column;
@@ -23,9 +23,10 @@
 .textSection{
     display:flex ;
     flex-direction: column;
+    min-width: 600px;
     padding-left: 35px;
     padding-right: 35px;
-    height: 300px;
+    min-height: 300px;
     flex-wrap: nowrap;
     justify-content: center;
 }
@@ -47,6 +48,12 @@
 .div5{
     background-color: rgb(255, 255, 118) ;
     height: 15rem;
+    display: grid;
+}
+span{
+    font: small-caps bolder 12px/70px Georgia, serif;
+    align-self: flex-end;
+    justify-self: center;
 }
 
 html {
