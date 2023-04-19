@@ -1,0 +1,57 @@
+
+.container{
+    min-width: 650px;
+    min-height: 1100px;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+.topGrey{
+    background-color: rgba(187, 189, 191, 0.852);
+    height: 140px;
+    display: flex;
+    align-items: center;
+
+}
+.squarredBlue{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(60, 130, 228) ;
+    display: flex;
+    margin-left: 20px;
+}
+.textSection{
+    display:flex ;
+    flex-direction: column;
+    padding-left: 35px;
+    padding-right: 35px;
+    height: 300px;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+.textSection p{
+    text-align: justify  ;
+}
+.div2{
+    background-color: rgb(60, 130, 228) ;
+    height: 15rem;
+}
+.div3{
+    background-color: rgb(106, 237, 213) ;
+    height: 15rem;
+}
+.div4{
+    background-color: rgb(210, 255, 183) ;
+    height: 15rem;
+}
+.div5{
+    background-color: rgb(255, 255, 118) ;
+    height: 15rem;
+}
+
+html {
+  /* The scrolling box scrolls in a smooth fashion using a user-agent-defined timing function over a user-agent-defined period of time.   */
+  scroll-behavior: smooth;
+  /* Default scroll overflow behavior is observed inside the element this value is set on (e.g. "bounce" effects or refreshes), */
+  overscroll-behavior-block: contain;
+}
