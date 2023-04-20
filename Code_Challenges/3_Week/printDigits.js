@@ -20,6 +20,7 @@
 
  */
 
+// Function to reverse digits of num
 function printDigits(num){
     let digitBkwrds = 0
     while (num > 0){
