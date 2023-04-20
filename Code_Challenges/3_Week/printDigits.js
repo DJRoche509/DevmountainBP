@@ -19,3 +19,17 @@
     // 1
 
  */
+
+function printDigits(num){
+    let digitBkwrds = 0
+    while (num > 0){
+        digitBkwrds = (digitBkwrds * 10) + ( num % 10 ) ; 
+        num = Math.floor(num /10)
+    }
+    console.log(digitBkwrds);
+}
+
+printDigits(314)
+// 4
+// 1
+// 3
