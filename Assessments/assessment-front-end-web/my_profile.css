@@ -97,6 +97,11 @@ h4{
 .styled_buttons{
     color:white;
     background-color: orange;
-    height: calc(20px*2);
+    height: calc(22px*2);
+    width: 115px; 
+    margin-right: 8px;
     font-weight:900 ;
+    box-shadow:  1px 0px 3px 1px   #97653c;
+    border-radius: 12px;
+    border-style: none;
 }
