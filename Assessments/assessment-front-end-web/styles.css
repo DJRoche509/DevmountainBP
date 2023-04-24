@@ -1,3 +1,5 @@
+@import 'my_profile.css' ;
+
 body {
   background: #ddd;
   margin: 1rem;
@@ -35,72 +37,4 @@ input {
 
 img {
 	max-width: 300px;
-}
-
-h4{
-	color: orange;
-}
-
-.strongFront{
-	font: normal bolder 20px "Open Sans" ;
-}
-.centered{
-	text-align: center;
-	margin-top: 15px;
-	font-size: small ;
-	width: 100%;
-	height: 4vh;
-}
-
-#message{
-	display: inline-block;
-	width: 100%;
-	margin-top: 25px;
-	margin-bottom: 40px;
-}
-#message div{
-	width: fit-content;
-	padding-top: 10px ;
-	padding-bottom: 10px ;
-}
-
-.message_area{ 
-	transition:all 0.7s ease 0s;
-	width: 90%;
-	height: 40px;
-	margin-top:8px;
-	border: none;
-	border-radius: 5px;
-}
-
-.message_area:focus{
-	height: 180px;
-	outline:none;
-}
-
-.message_area:hover{
-	border: 1px solid #a6b3bb ;
-}
-
-.input_email{
-	border: none;
-	margin-top:8px;
-	border-radius: 5px;
-}
-
-.input_email:hover{
-	border: 1px solid #a6b3bb ;
-}
-
-.input_email:focus{
-	/* background-color:rgba(75, 123, 227, 0.2) ; */
-	outline:none;
-}
-
-.fas, .far{
-	color: orange
-}
-
-::placeholder{
-	opacity: .4;
 }
