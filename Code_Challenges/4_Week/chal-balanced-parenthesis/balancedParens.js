@@ -45,6 +45,16 @@ let sample4 = "Balanced."
 function has_balanced_parens(checkParenInStr){
     let count = 0 ;
     for (let i = 0; i < checkParenInStr.length; i++){
+        count = checkParenInStr[i] ==='('  ? count + 1 : checkParenInStr[i] ===')' ? count - 1  : count + 0    
+    }
+    // Retun true if balanced, else false
+    return count === 0;
+}
+
+/*
+function has_balanced_parens(checkParenInStr){
+    let count = 0 ;
+    for (let i = 0; i < checkParenInStr.length; i++){
         if(checkParenInStr[i] ==='('){
             count++ ;            
         } else if(checkParenInStr[i] ===')'){
@@ -54,6 +64,7 @@ function has_balanced_parens(checkParenInStr){
     // Retun true if balanced, else false
     return count === 0;
 }
+ */
 
 console.log(has_balanced_parens("(This has (too many closes.) ) )"));
 // false
