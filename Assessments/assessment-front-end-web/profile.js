@@ -1,6 +1,6 @@
 
 // Create buttons variable and assign a list of buttons using "buttons" class
-const buttons = document.querySelector('.buttons')
+let buttons = document.getElementsByClassName("buttons");
 // console.log(buttons);
 
 /**
@@ -10,17 +10,18 @@ const buttons = document.querySelector('.buttons')
  */
 const checkClickedButtons = event=>{
     event.preventDefault();
-    const checkedButtons = event.target.nodeName === 'BUTTON' ;
+    // const checkedButtons = event.target.nodeName === 'BUTTON' ;
     let element = document.getElementById(event.target.id);
-    if (!checkedButtons ){
-        return;
-    }
-    else if (element ){
-        if (!element.classList.contains("styled_buttons")){
-            element.classList.add("styled_buttons");
-        }
+    // if (!checkedButtons ){
+        // return;
+    // }
+    if (!element.classList.contains("styled_buttons")){
+        element.classList.add("styled_buttons");
+        // Send alert only if button doesn't contain class
         SendAlert (event.target.id) ;
-    } else {
+    } 
+    else {
+        // Second click on button to desactivate orange big button
         element.classList.remove("styled_buttons");
     }
 }
@@ -38,9 +39,11 @@ function SendAlert(idName){
         : idName === 'place'
         ? alert('My favorite place is by the beach')
         : alert(`My favorite ritual is having 'Hot chocolate' with buttered bread at night with family`);
-    return alertResult
+    return alertResult ;
 }
 
-//Add a click event listener to "buttons" class
-buttons.addEventListener('click', checkClickedButtons)
+// Addd eventlistenr to each button in the buttons  array
+for (let i =0; i<buttons.length; i++){
+    buttons[i].addEventListener('click', checkClickedButtons) ;
+}
 
