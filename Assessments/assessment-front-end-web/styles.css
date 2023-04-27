@@ -24,6 +24,11 @@ ol {
 
 a {
 	color: orange;
+	text-decoration: none;
+	font: normal bolder 20px "Open Sans" ;
+	box-shadow:  0px 0px 3px 1px   rgb(255, 165, 0, 0.4);
+	border-radius: 3px;
+	background-color: rgba(255, 255, 255, 0.185);
 }
 
 a:visited {
@@ -36,5 +41,26 @@ input {
 }
 
 img {
-	max-width: 300px;
+	max-width: 210px;
+	height: 210px ;
+	border-radius: 120px;
+}
+
+.check_box_section{
+	display: flex;
+	margin-bottom: 30px;
+}
+.check_box_inline{
+	display: inline;
+	max-width: 90px;
+	padding-right: 20px;
+}
+
+#contact div{
+	margin-top: 10px;
+}
+
+.submit_button{
+	margin-bottom: 15px;
+	margin-left: 5%;
 }
