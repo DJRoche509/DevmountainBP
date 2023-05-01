@@ -9,6 +9,12 @@ app.use(express.json());
 
 const { getCompliment } = require('./controller')
 
-app.get("/api/compliment", getCompliment);
+const {getFortune} = require('./controller')
+
+const {submitHandler} = require('./controller')
+
+app.get("/api/myApp/compliment", getCompliment);
+app.get("/api/myApp/fortune", getFortune);
+app.post('/api/myApp/sections', submitHandler);
 
 app.listen(4000, () => console.log("Server running on 4000"));
