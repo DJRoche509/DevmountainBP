@@ -27,6 +27,16 @@ const checkClickedButtons = event=>{
 }
 
 /**
+ * instead of implementing the if/else statement
+ * we could simply do
+ * if (!element.classList.contains("styled_buttons")){
+        SendAlert (event.target.id) ;
+    }  
+    element.classList.toggle("styled_buttons") 
+ */
+
+
+/**
  * 
  * @param {string} idName - The id value recieved  from event.target.id, checkClickedButtons()
  * @returns {string} alertResult - The resulted value from the if/else ternary statement 
