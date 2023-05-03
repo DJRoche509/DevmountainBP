@@ -1,3 +1,18 @@
+require('dotenv').config();
+
+//destructure connection string from process .env
+const {CONNECTION_STRING} = process.env ;
+const Sequelize = require('sequelize') ;
+
+const sequelize = new Sequelize(CONNECTION_STRING, {
+    dialect: 'postgres',
+    dialectOptions: {
+        ssl: {
+            rejectUnauthorized: false
+        }
+    }
+});
+
 module.exports = {
     seed: (req, res) => {
         sequelize.query(`

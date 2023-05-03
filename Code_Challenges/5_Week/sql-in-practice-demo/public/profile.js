@@ -8,14 +8,14 @@ const cityInput = document.querySelector('#city')
 const stateInput = document.querySelector('#state')
 const zipCodeInput = document.querySelector('#zip-code')
 
-// const inputs = [firstNameInput, lastNameInput, phoneInput, emailInput, addressInput, cityInput, stateInput, zipCodeInput]
+const inputs = [firstNameInput, lastNameInput, phoneInput, emailInput, addressInput, cityInput, stateInput, zipCodeInput]
 
-// inputs.forEach(input => {
-//     input.addEventListener('change', (e) => {
-//         input.value = e.target.value
-//         console.log(input.value)
-//     })
-// })
+inputs.forEach(input => {
+    input.addEventListener('change', (e) => {
+        input.value = e.target.value
+        console.log(input.value)
+    })
+})
 
 function getProfileInfo() {
     axios.get('http://localhost:9876/user') 
