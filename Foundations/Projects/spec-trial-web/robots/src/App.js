@@ -7,15 +7,16 @@ import RobotList from './components/RobotList'
 
 const App = () => {
   const [input, setInput] = useState('')
-  const [robots, setRobots] = useState([])
+  const [robots, setRobots] = useState([{name:'robocop', picture:'https://robohash.org/roboco.png'}])
 
-  const handleInput = () => {
-    console.log('handleInput fn fired')
+  const handleInput = (evt) => {
+    setInput(evt.target.value)
   }
 
   const handleRobotAdd = (e) => {
     e.preventDefault()
 
+    console.log('hit');
     let robot = {
       name: input,
       picture: `https://robohash.org/${input}.png`
@@ -29,8 +30,8 @@ const App = () => {
     <div className='app'>
       <Header/>
       <main>
-        <Form />
-        <RobotList />
+        <Form handleInput={handleInput} handleRobotAdd={handleRobotAdd} input={input}/>
+        <RobotList robots = {robots}/>
       </main>
     </div>
   )

@@ -1,15 +1,16 @@
 import React from 'react'
+import Robot from './Robot'
 
 const RobotList = (props) => {
-    if (props.robots) {
+    if (props.robots.length > 0) {
         return (
             <div className='robot-list'>
                 <h2>Your Robots</h2>
                 <ul>
-                    {
-                    
-                        // CODE HERE
-                    
+                    {                    
+                        props.robots.map((robot, i) => {
+                            return <Robot key={i} robot={robot} />
+                        })                    
                     } 
                 </ul>
             </div>
