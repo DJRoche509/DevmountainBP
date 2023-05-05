@@ -19,11 +19,11 @@ module.exports = {
         res.status(200).send(randomFortune);
     },
 
-    submitHandler: (req, res) => {
-        let {input} = req.body
-        !input ? res.status(400).send('Sorry, try again with a single valid WORD.')
-               : data.push(req.body) 
-               res.status(200).send(input); 
+    submitHandler: (req, res) => { console.log(req.body);
+        let {sentiment} = req.body
+        !sentiment ? res.status(400).send('Sorry, try again with a single valid WORD.')
+            //    : data.push(req.body) 
+               :res.status(200).send(sentiment); 
     }
 
 }
