@@ -1,13 +1,18 @@
 const complimentBtn = document.getElementById("complimentButton");
 const fortuneBtn = document.getElementById('fortuneButton');
 // const userIn = document.querySelector('.userIn');
-const addSubmitBtn = document.getElementById('addSubmitSect');
+const addSubmitBtn = document.getElementById('addSubmitBtn');
 const allSections = document.getElementById('sections')
-
+const newDiv = document.getElementById('newDiv') ; 
 const baseURL = "http://localhost:4000/api/myApp" ;
 
-const myAppCallback = ({data:sections}) => displaySections(sections);
-const errCallback = err => console.log(err.response.data);
+// Query from a dictionnary API
+const url = "https://api/dictionaryapi.dev/api/v2/entries/en/" ;
+const res = document.getElementById('result');
+const sound = document.getElementById('sound');
+
+const myAppCallback = (data) => displaySections(data);
+const errCallback = err => console.log(err);
 
 
 const getCompliment = () => {
@@ -26,11 +31,12 @@ const getFortune = () => {
     });
 };
 
-const setUserInput = body => axios.post(body).then(myAppCallback).catch(errCallback) ; 
+const setUserInput = body => axios.post(`${baseURL}/sections`, body).then(myAppCallback).catch(errCallback) ; 
     
 function submitHandler (e) {
     e.preventDefault();
     let input = document.querySelector('.userIn');
+    fetch(`${url}${input.value}`)
 
     let bodyObj = {
         sentiment: input.value,
@@ -44,19 +50,17 @@ function submitHandler (e) {
 function createSection(section) {
     const aSection = document.createElement('div');
     const aFeeling = document.createElement('h3') ;
-    aFeeling.innerText = section.sentiment.charAt(0).toUpperCase() + section.sentiment.slice(1)+' Section';
+    aSection.innerHTML = '<button type="button" class="btn-close" title="Click to delete" aria-label="Close">X</button>';
+    aFeeling.innerText = section.charAt(0).toUpperCase() + section.slice(1).toLowerCase()+' Section'; console.log(aFeeling);
     aSection.appendChild(aFeeling);
     aSection.classList.add('buttons')
-
-    allSections.appendChild(aSection)
+    newDiv.appendChild(aSection)
 }
 
 
 function displaySections(arrSection) {
-    allSections.innerHTML = '';
-    for (let i = 0; i<arrSection.length; i++){
-        createSection(arrSection[i])
-    }
+    console.log(arrSection);
+        createSection(arrSection.data)
 }
 
 addSubmitBtn.addEventListener('click', submitHandler);
