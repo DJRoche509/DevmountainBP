@@ -27,7 +27,7 @@
 
 /**
  * 
- * @param {Integer} num 
+ * @param {Integer} sq 
  * @returns {Integer} - The result of the next squared num value
  */
 function perfectSquare(sq) {
