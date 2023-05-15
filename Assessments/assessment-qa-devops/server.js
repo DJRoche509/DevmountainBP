@@ -8,6 +8,10 @@ const playerRecord = {
 };
 const app = express();
 
+// Set up middleware
+app.use(express.static(`${__dirname}/public`));
+// Or app.use(express.static('public'));
+
 app.use(express.json());
 
 // Add up the total health of all the robots
@@ -32,12 +36,12 @@ const calculateHealthAfterAttack = ({ playerDuo, compDuo }) => {
   return {
     compHealth: compHealth - playerAttack,
     playerHealth: playerHealth - compAttack,
-  };
+  };Hea
 };
 
 app.get("/api/robots", (req, res) => {
   try {
-    res.status(200).send(botsArr);
+    res.status(200).send(bots);
   } catch (error) {
     console.error("ERROR GETTING BOTS", error);
     res.sendStatus(400);
@@ -67,8 +71,10 @@ app.post("/api/duel", (req, res) => {
     if (compHealth > playerHealth) {
       playerRecord.losses += 1;
       res.status(200).send("You lost!");
-    } else {
-      playerRecord.losses += 1;
+    } else if (compHealth === playerHealth){ 
+      res.status(200).send("It's a tie!");
+    }else {
+      playerRecord.wins += 1;
       res.status(200).send("You won!");
     }
   } catch (error) {
@@ -87,5 +93,5 @@ app.get("/api/player", (req, res) => {
 });
 
 app.listen(8000, () => {
-  console.log(`Listening on 8000`);
+  console.log(`Listening on port: 8000`);
 });
