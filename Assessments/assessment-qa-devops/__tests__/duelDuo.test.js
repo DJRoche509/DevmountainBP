@@ -14,6 +14,9 @@ describe("Duel Duo tests", () => {
   test("page loads with title", async () => {
     await driver.get("http://localhost:8000");
     await driver.wait(until.titleIs("Duel Duo"), 1000);
+    
+    // const pageTitle = await driver.findElement(By.name("Duel Duo"));
+    // expect(await pageTitle).toBe("Duel Duo")
   });
   
   //test the functionality
