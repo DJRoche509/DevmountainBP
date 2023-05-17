@@ -28,6 +28,12 @@ app.use(express.static(`${__dirname}/public`));
 
 app.use(express.json());
 
+//entry point for our website
+app.get("/", (req,res) => {
+  res.sendFile(`${__dirname}/public/index.html`);
+  //Or res.sendFile(path.join(__dirname,'./public/index.html'))
+});
+
 // Add up the total health of all the robots
 const calculateTotalHealth = (robots) =>
   robots.reduce((total, { health }) => total + health, 0);
@@ -50,7 +56,7 @@ const calculateHealthAfterAttack = ({ playerDuo, compDuo }) => {
   return {
     compHealth: compHealth - playerAttack,
     playerHealth: playerHealth - compAttack,
-  };Hea
+  };
 };
 
 app.get("/api/robots", (req, res) => {
