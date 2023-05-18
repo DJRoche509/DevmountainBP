@@ -113,3 +113,16 @@
  * canWin(10)
  * // true
  */
+
+
+const canWin = n => {
+    let res = 
+    n <= 1  ? false : !(canWin(n-2) && canWin(n-3) && canWin(n-5));
+    return res;
+}
+
+ console.log(canWin(8));
+ // false
+ 
+ console.log(canWin(9));
+ // true
