@@ -49,3 +49,21 @@ const minimum = arr => {
 }
 
 console.log(smallestDiff([10, 20, 14, 16, 18],[30, 23, 54, 33, 96]));
+
+
+
+
+
+
+/**
+ *  SOLUTION 2
+ * 
+ * const smallestDiff = (x, y) =>{
+ *   const diffArr = []
+ *   x.forEach((el, i) => {
+ *      diffArr.push(y[i] -= el)
+ *   })
+ *   diffArr.sort((a, b) => a-b)
+ *   return diffArr[0]
+}
+ */
