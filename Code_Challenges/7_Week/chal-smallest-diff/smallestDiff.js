@@ -19,3 +19,33 @@
  * 
  * Write a function that determines the smallest difference.
  */
+
+
+/** 
+ * @param {number[]} x - An array of integers.
+ * @param {number[]} y - An array of integers.
+ * @returns {function} - minimum() fucntion takes an array of int and returns its smallest int element. 
+ */
+function smallestDiff(x,y){
+    smallDiff=[];
+    for (let i = 0; i<x.length; i++){
+        for(let j = 0;j<y.length;j++){
+            smallDiff.push(y[i]-x[j])
+        }
+    } 
+    return minimum(smallDiff);
+}
+
+/**
+ * @param {number[]} arr - The arr array, all its element are of type integers.
+ * @returns {number} min - The smallest integer element found in the array passed in. 
+ */
+const minimum = arr => {
+    let min = arr[0];
+    for (let s = 0; s < (arr.length - 1); s++){
+        min = min > arr[s+1]  ? arr[s+1] : min
+    }
+    return min
+}
+
+console.log(smallestDiff([10, 20, 14, 16, 18],[30, 23, 54, 33, 96]));
