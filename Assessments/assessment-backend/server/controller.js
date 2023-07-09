@@ -19,12 +19,28 @@ module.exports = {
         res.status(200).send(randomFortune);
     },
 
-    submitHandler: (req, res) => { console.log(req.body);
-        let {sentiment} = req.body
+    submitHandler: (req, res) => { 
+        let {sentiment} = req.body ; console.log(sentiment)
         !sentiment ? res.status(400).send('Sorry, try again with a single valid WORD.')
             //    : data.push(req.body) 
                :res.status(200).send(sentiment); 
-    }
+    },
+
+    getSections: (req, res) => {
+        res.status(200).send(sentiment)
+    },
+
+    deleteSection: (req, res) => {
+        const { id } = req.params.id;
+        let {allSections} = req.body
+        let sectionIndex = allSections.findIndex(elem => 
+            elem.id === id); 
+        console.log('Section Id:', id);
+        console.log('Section Index:', sectionIndex );
+
+        allSections.splice(sectionIndex,1);
+        res.status(200).send(allSections);
+    },
 
 }
 
