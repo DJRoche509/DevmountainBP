@@ -27,7 +27,7 @@
     border-radius: 15px;
 }
 
-.buttons button{
+button{
     border-style: none ;
     border-radius: 5px;
     box-shadow: 0px 0px 5px 1px rgb(155, 148, 148);
