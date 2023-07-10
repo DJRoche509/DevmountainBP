@@ -40,7 +40,6 @@ function submitHandler (e) {
     const fetchData = fetch(`${url}${input.value}`)
     .then(response => response.json())
     .then(data => {
-            // console.log(data);
             res.innerHTML = `
             <div class = 'word'>
                     <h3>
@@ -69,18 +68,35 @@ function submitHandler (e) {
         input.value = '';
     }
     let id = 0;
+    
+    let sections = [];  // create an empty array to store the section data
+
     function createSection(section) {
         id++;
         const aSection = document.createElement('div');
         const aFeeling = document.createElement('h3') ;
-        aSection.innerHTML = '<button onclick="deleteSection()" type="button" class="btn-close" title="Click to delete" aria-label="Close">X</button>'; 
-        aSection.setAttribute('id', id)
-        closeBtn = document.getElementById(id); 
-        aFeeling.innerText = camelWord(section)+' Section'; //console.log(aFeeling);
+        closeBtn =  document.createElement('button'); // create the close button element
+        closeBtn.setAttribute('type', 'button');
+        closeBtn.setAttribute('title', 'Click to delete');
+        closeBtn.setAttribute('aria-label', 'Close');
+        closeBtn.innerHTML = 'X';
+        aSection.appendChild(closeBtn); // append the close button to the section
+        aSection.setAttribute('id', id); 
+        aFeeling.innerText = camelWord(section)+' Section';
         aSection.appendChild(aFeeling);
         aFeeling.classList.add('sectionText');
         newDiv.classList.add('resultBox');
         newDiv.appendChild(aSection);    
+
+        // add each section to the sections array
+        sections.push({
+            id,
+            section,
+        });
+        // add the event listener to the close button
+        addCloseBtnEventListener(aSection);
+        // return the new section element
+        return aSection;
 }
 
 function camelWord(word){
@@ -92,20 +108,40 @@ function playSound () {
 }
 
 function displaySections(arrSection) {
-    // console.log(arrSection);
     createSection(arrSection.data)
 }
 
 const getSections= () => axios.get(`${baseURL}`).then(res => console.log(res)).catch(err =>console.log(err))
 
-const deleteSection = (id) => axios.delete(`${baseURL}/sections/${id}`,{
-    headers:{
-        'Content-Type': 'application/json'
-    },
-    data: {id:id}
-}).then(myAppCallback).catch(errCallback)
+
+function addCloseBtnEventListener(section) {
+    const closeBtn = section.querySelector('button');
+    closeBtn.addEventListener('click', function() {
+        // find the index of the section in the sections array
+        const index = sections.findIndex(s => parseInt(s.id) === parseInt(section.id));
+        if (index !== -1) { 
+            // remove the section from the sections array
+            sections.splice(index, 1);
+            // remove the section element from the DOM
+            section.remove();
+            // call the deleteSection function with the section ID
+            deleteSection(section.id, sections);
+        }
+    });
+}
+
+function deleteSection(id, sections) {
+    axios.delete(`${baseURL}/sections/${id}`)
+        .then(res => {
+            if (res.status === 200) {
+            const updatedSections = sections.filter(section => section.id !== id); console.log(updatedSections, '--updated');
+            // update the sections array
+            sections.splice(0, sections.length, ...updatedSections);        
+        }
+    })
+    .catch(err => console.log(`Error deleting section ${id}`, err));
+}
 
 addSubmitBtn.addEventListener('click', submitHandler);
 complimentBtn.addEventListener('click', getCompliment);
 fortuneBtn.addEventListener('click', getFortune);
-// closeBtn.addEventListener('click', deleteSection)
