@@ -9,11 +9,11 @@ app.use(express.json());
 
 const {getCompliment, getFortune, submitHandler, getSections, deleteSection} = require('./controller')
 
-// const { submitHandler, deleteSection } = require('./controller')
+// const sections = []; // Define the sections array here
 
 app.get("/api/myApp/compliment", getCompliment);
 app.get("/api/myApp/fortune", getFortune);
-app.get('/api/myApp/secions', getSections)
+app.get('/api/myApp/sections', getSections)
 app.post('/api/myApp/sections', submitHandler);
 app.delete('/api/myApp/sections/:id', deleteSection);
 
