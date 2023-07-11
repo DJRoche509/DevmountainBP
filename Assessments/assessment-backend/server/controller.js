@@ -1,3 +1,6 @@
+let sections =[];
+let sect_id = 0 ;
+
 module.exports = {
 
     getCompliment: (req, res) => {
@@ -20,10 +23,17 @@ module.exports = {
     },
 
     submitHandler: (req, res) => { 
-        let {sentiment} = req.body ; console.log(sentiment)
-        !sentiment ? res.status(400).send('Sorry, try again with a single valid WORD.')
+        let {sentiment} = req.body ;
+        const newSection = {
+            id: ++sect_id,
+            section: sentiment,
+        }
+
+        !sentiment 
+            ? res.status(400).send('Sorry, try again with a single valid WORD.')
             //    : data.push(req.body) 
-               :res.status(200).send(sentiment); 
+            :res.status(200).send(sentiment) && sections.push(newSection);
+
     },
 
     getSections: (req, res) => {
@@ -31,15 +41,19 @@ module.exports = {
     },
 
     deleteSection: (req, res) => {
-        const { id } = req.params.id;
-        let {allSections} = req.body
-        let sectionIndex = allSections.findIndex(elem => 
-            elem.id === id); 
-        console.log('Section Id:', id);
-        console.log('Section Index:', sectionIndex );
-
-        allSections.splice(sectionIndex,1);
-        res.status(200).send(allSections);
+        const { id }  = req.params;
+        const index = sections.findIndex(section => section.id === parseInt(id)); console.log(index, 'Index printed');
+        if (index === -1) {
+            res.status(404).send(`Section with id ${id} not found`);
+        } else {
+            // Check if the ids match
+            if (sections[index].id === id) {
+                sections.splice(index, 1);
+                res.status(200).send(`Section with id ${id} deleted successfully`);
+            } else {
+                res.status(400).send("Bad request");
+            }
+        }
     },
 
 }
@@ -47,7 +61,7 @@ module.exports = {
 /**
  *  getRandomIndex() is used to automatically calculate and return a random number
  * @param {string} arr - array pass to the function getRandomIndex 
- * @returns {int} - A random number within the length of the arrray received by getRandomIndex()
+ * @returns {int} - A random number within the length of the array received by getRandomIndex()
  */
 function getRandomIndex(arr){
     return Math.floor(Math.random()*arr.length);
