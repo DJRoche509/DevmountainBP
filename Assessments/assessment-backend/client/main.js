@@ -32,7 +32,7 @@ const getFortune = () => {
         });
     };
     
-    const setUserInput = body => axios.post(`${baseURL}/sections`, body).then(myAppCallback).catch(errCallback) ; 
+const setUserInput = body => axios.post(`${baseURL}/sections`, body).then(myAppCallback).catch(errCallback) ; 
     
 function submitHandler (e) {
     e.preventDefault();
@@ -125,15 +125,15 @@ function addCloseBtnEventListener(section) {
             // remove the section element from the DOM
             section.remove();
             // call the deleteSection function with the section ID
-            deleteSection(section.id, sections);
+            deleteSection(parseInt(section.id), sections);
         }
     });
 }
 
 function deleteSection(id, sections) {
     axios.delete(`${baseURL}/sections/${id}`)
-        .then(res => {
-            if (res.status === 200) {
+    .then(res => {
+        if (res.status === 200) {
             const updatedSections = sections.filter(section => section.id !== id); console.log(updatedSections, '--updated');
             // update the sections array
             sections.splice(0, sections.length, ...updatedSections);        
