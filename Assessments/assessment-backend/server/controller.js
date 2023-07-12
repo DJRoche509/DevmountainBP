@@ -42,12 +42,12 @@ module.exports = {
 
     deleteSection: (req, res) => {
         const { id }  = req.params;
-        const index = sections.findIndex(section => section.id === parseInt(id)); console.log(index, 'Index printed');
+        const index = sections.findIndex(section => section.id === +id); console.log(index, 'Index printed');
         if (index === -1) {
             res.status(404).send(`Section with id ${id} not found`);
         } else {
             // Check if the ids match
-            if (sections[index].id === id) {
+            if (sections[index].id === +id) {
                 sections.splice(index, 1);
                 res.status(200).send(`Section with id ${id} deleted successfully`);
             } else {
